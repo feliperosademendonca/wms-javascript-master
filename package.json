@@ -260,7 +260,7 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "start": "node index",
+    "start": "node index.js",
     "test": "test"
   },
   "author": "felipe",
