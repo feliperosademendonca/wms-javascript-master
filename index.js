@@ -12,7 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // Defina o caminho do arquivo CSV
-const bd = 'bd.csv';
+const bd = './bd.csv';
 function escrevaBd(data){
 // Crie um objeto CsvWriter
 const csvWriter = createCsvWriter({
