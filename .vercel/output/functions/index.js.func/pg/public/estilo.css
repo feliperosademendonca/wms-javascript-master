@@ -1,0 +1,177 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+
+body{
+  background-color: #eeeeee;
+  color: #555;
+
+}
+
+h1,h2,h3,h4,span,textarea,a{
+  margin: 3px;
+  padding: 3px;
+}
+
+fieldset{
+  display:flexbox;
+flex: content;
+align-items: center;
+justify-items: center;
+  border: 1px solid #ffffff; 
+  border-bottom: 1px solid #b9b9b9; 
+  border-radius: 3px;
+  margin: 10px;
+  
+  box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.096) ;
+  box-shadow:  1px 1px 5px rgba(0, 0, 0, 0.137) ;
+
+}
+
+legend{
+  font-style:bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+ }
+section{
+  display:flexbox;
+  font-size: large;
+  margin: 10px;
+}
+
+table,th,td,tr{
+  border-collapse: collapse;
+  border: 1px solid #999999; 
+  margin-top: 10px;
+  padding: 2px;
+  margin: 1px;
+  text-align: center;
+}
+th{
+  background-color: #999999;
+  border: 1px solid black;
+  color: #fff;
+}
+
+label{
+  margin: 3px;
+  padding: 3px;
+}
+
+input{
+  margin: 3px;
+  height: 20px;
+  text-align: center;
+  border: none;
+  border: 1px solid #4444;
+  background-color: #ffff;
+  color: #555;
+}
+
+button{
+  
+  width: 200px;
+  margin: 3px;
+  height: 30px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #4444;
+  background-color: #555;
+  color: #fff;
+}
+
+
+button:active{
+  border: 4px solid #2bff00;
+  background-color: #13a000;
+  color: #ffffff;
+  transition: 300ms;
+}
+
+
+.btnFind{
+  width: 200px;
+  margin: 3px;
+  height: 30px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  border: 3px solid #ff0000;
+  background-color: #555;
+  color: #fff;
+}
+
+
+.buttonMenu{
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+  font-size: large;
+  border-radius: 5px;
+  border: 4px solid #57575744;
+  box-shadow: 2px 2px 5px #00000093;
+}
+
+.buttonMenu:hover{
+  border: 4px solid #5b48c7;
+  background-color: #2a00c4;
+  color: #ffffff;
+  transition: 300ms;
+}
+
+
+.buttonMenu:active{
+  border: 4px solid #2bff00;
+  background-color: #13a000;
+  color: #ffffff;
+  transition: 300ms;
+}
+
+
+
+footer>p{
+  font-size:11px;
+  text-align: center;
+}
+ table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.btmRmv{
+  
+   border-radius: 5px;
+  border: 4px solid #57575744;
+  box-shadow: 2px 2px 5px #00000093;
+}
+
+.btmRmv:hover{
+  border: 4px solid #5b48c7;
+  background-color: #2a00c4;
+  color: #ffffff;
+  transition: 100ms;
+}
+
+
+.btmRmv:active{
+  border: 4px solid red;
+  background-color: rgb(161, 0, 0);
+  color: #ffffff;
+  transition: 100ms;
+}
