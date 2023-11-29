@@ -4,7 +4,7 @@
   "settings": {
     "createdAt": 1701263892474,
     "devCommand": null,
-    "installCommand": "npm install",
+    "installCommand": null,
     "buildCommand": null,
     "outputDirectory": null,
     "rootDirectory": null,
