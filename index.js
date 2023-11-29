@@ -236,7 +236,6 @@ app.get('/public/estilo.css', function(req, res) {
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => 
-console.log('Servidor iniciado na porta 3000: http://localhost:3000'),
-console.info('Servidor iniciado na porta 3000: http://localhost:3000'),
-
+console.log('Servidor iniciado na porta ' + port),
+ 
 );
