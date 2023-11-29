@@ -1,14 +1,1 @@
-{
-  "projectId": "prj_gaApelbENCEKRIzOk4QcaTrjWWFh",
-  "orgId": "pYbAfJvr7SqCZ6c1UYEJEWrV",
-  "settings": {
-    "createdAt": 1701263892474,
-    "devCommand": null,
-    "installCommand": null,
-    "buildCommand": null,
-    "outputDirectory": null,
-    "rootDirectory": null,
-    "directoryListing": false,
-    "nodeVersion": "18.x"
-  }
-}
+{"orgId":"pYbAfJvr7SqCZ6c1UYEJEWrV","projectId":"prj_DL99W7MnrEwHH6F571oVBB1AOgyM"}npm init
