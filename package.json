@@ -4,7 +4,7 @@
   "description": "*Sistema de gerenciamento de armazém em javascript em desenvolvimento e opensource*",
   "main": "index.js",
   "engines": {
-    "node": "^14.x"
+    "node": "^20.x"
   },
   "dependencies": {
     "abab": "^2.0.6",
