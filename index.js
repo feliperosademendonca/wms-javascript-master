@@ -67,6 +67,7 @@ app.set('view engine', 'handlebars')
 
 
 
+
 // rota do handlebars
 app.get('/', function(req, res) {
   res.render('menu');
