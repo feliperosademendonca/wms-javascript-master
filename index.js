@@ -72,7 +72,7 @@ app.set('views', './views');
 
 // rota do handlebars
 app.get('/', function(req, res) {
-  res.send('<h1>Carregou essa porra</h1>');
+  res.render('menu');
 });
 
 // Tela Inicial HOMEPage
