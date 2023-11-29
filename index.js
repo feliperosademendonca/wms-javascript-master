@@ -7,9 +7,9 @@ const csv = require('csv-parser');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const fs = require('fs');
 
+
 // Defina o caminho do arquivo CSV
 const bd = 'bd.csv';
-
 function escrevaBd(data){
 // Crie um objeto CsvWriter
 const csvWriter = createCsvWriter({
@@ -47,10 +47,11 @@ csvWriter.writeRecords(dadosFormatados)
   .catch(err => console.error('Erro ao escrever o arquivo CSV', err));
 
 }
+
 //importar modulos de End.js e Prod.js
 const end = require('./end.js').End
-const rmv = require('../wms-javascript-master/rmv.js');
-const add = require('./../wms-javascript-master/add.js');
+const rmv = require('./rmv.js');
+const add = require('./add.js');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
