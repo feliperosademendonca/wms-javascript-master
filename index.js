@@ -61,10 +61,9 @@ app.use(bodyParser.json())
  
  
 //Configuração da ViewEngine
-app.engine('handlebars', handlebars.engine ({ defaultLayout:'main'}))
-app.set('view engine', 'handlebars')
+app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 app.set('views', './views');
-
 
 
 
