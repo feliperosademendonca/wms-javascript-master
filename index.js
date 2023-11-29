@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const csv = require('csv-parser');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const fs = require('fs');
+const path = require('path');
+app.set('views', path.join(__dirname, 'views'));
+
 
 
 // Defina o caminho do arquivo CSV
