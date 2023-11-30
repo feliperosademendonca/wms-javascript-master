@@ -12,7 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // Defina o caminho do arquivo CSV
-const bd = 'bd.csv';
+const bd = './bd.csv';
 function escrevaBd(data){
 // Crie um objeto CsvWriter
 const csvWriter = createCsvWriter({
@@ -62,13 +62,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
  
- 
 //Configuração da ViewEngine
 app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.set('views', './views');
-
-
 
 // rota do handlebars
 app.get('/', function(req, res) {
