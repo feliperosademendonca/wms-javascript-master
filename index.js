@@ -10,8 +10,15 @@ const path = require('path');
 app.set('views', path.join(__dirname, 'views'));
 
 
+// Função para verificar as credenciais do usuário
+function authenticateUser(username, password) {
+  // Em uma aplicação real, você deve consultar um banco de dados ou fonte de dados seguro
+  // Aqui, usamos credenciais fixas apenas para fins de exemplo.
+  return username === 'felipe' && password === '1234';
+}
 
-// Defina o caminho do arquivo CSV
+
+// Defina o caminho do arquivo bd.CSV
 const bd = './bd.csv';
 function escrevaBd(data){
 // Crie um objeto CsvWriter
@@ -71,6 +78,94 @@ app.set('views', './views');
 app.get('/', function(req, res) {
   res.render('menu');
 });
+
+// página de Login
+app.get('/login', function(req, res) {
+  res.render('login');
+});
+
+// Rota para autenticar o usuário
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+console.log("user: "+username,",pswd: "+password)
+app.use(express.json());
+
+// Função para verificar as credenciais do usuário
+function authenticateUser(username, password) {
+  const usersTable = loadUsersFromCSV(); // Carrega os usuários do arquivo CSV
+
+  const user = usersTable.find(u => u.username === username && u.password === password);
+  return user ? { privilege: user.privilege } : null;
+}
+
+// Função para carregar usuários do arquivo CSV
+function loadUsersFromCSV() {
+  const users = [];
+
+  // Lê o arquivo CSV e adiciona os usuários ao array
+  const fileContents = fs.readFileSync('users.csv', 'utf8');
+  const rows = fileContents.split('\n');
+
+  rows.forEach(row => {
+    const [username, password, privilege] = row.split(',');
+    if (username && password && privilege) {
+      users.push({ username, password, privilege });
+    }
+  });
+
+  return users;
+}
+  if (authenticateUser(username, password)) {
+    res.json({ message: 'Login bem-sucedido' });
+  } else {
+    res.status(401).json({ message: 'Credenciais inválidas' });
+  }
+});
+
+// Rota para obter todos os usuários (requer autenticação)
+app.get('/users', (req, res) => {
+  // Verifica se o usuário está autenticado (pode ser uma verificação mais robusta em uma aplicação real)
+  const isAuthenticated = req.headers.authorization === 'Bearer token123';
+
+  if (!isAuthenticated) {
+    return res.status(401).json({ message: 'Acesso não autorizado' });
+  }
+
+  const users = [];
+
+  // Lê o arquivo CSV e adiciona os usuários ao array
+  fs.createReadStream('users.csv')
+    .pipe(csv())
+    .on('data', (row) => {
+      users.push(row);
+    })
+    .on('end', () => {
+      res.json(users);
+    });
+});
+
+// Rota para criar um novo usuário (requer autenticação)
+app.post('/users', (req, res) => {
+  // Verifica se o usuário está autenticado (pode ser uma verificação mais robusta em uma aplicação real)
+  const isAuthenticated = req.headers.authorization === 'Bearer token123';
+
+  if (!isAuthenticated) {
+    return res.status(401).json({ message: 'Acesso não autorizado' });
+  }
+
+  const newUser = req.body;
+
+  // Adiciona o novo usuário ao arquivo CSV
+  fs.appendFile('users.csv', `\n${Object.values(newUser).join(',')}`, (err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Erro ao adicionar o usuário.');
+    } else {
+      res.status(201).send('Usuário adicionado com sucesso.');
+    }
+  });
+});
+
 
 // Tela Inicial HOMEPage
 app.get('/menu', function(req, res) {
