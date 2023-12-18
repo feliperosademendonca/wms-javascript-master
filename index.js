@@ -74,10 +74,12 @@ app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+
 // rota do handlebars
 app.get('/', function(req, res) {
   res.render('menu');
 });
+
 
 // página de Login
 app.get('/login', function(req, res) {
@@ -164,6 +166,24 @@ app.post('/users', (req, res) => {
       res.status(201).send('Usuário adicionado com sucesso.');
     }
   });
+});
+
+// Middleware de autenticação global
+app.use((req, res, next) => {
+  const token = req.headers.authorization;
+console.log(token)
+  if (!token) {
+    // Redireciona para a página de login se não houver token
+    return res.redirect('/');
+  }
+
+  // Verifica o token (em uma aplicação real, você usaria uma biblioteca como JWT)
+  if (token !== 'token123') {
+    return res.status(401).json({ message: 'Token inválido' });
+  }
+
+  // Passa para o próximo middleware se o token for válido
+  next();
 });
 
 

@@ -1,2 +1,25 @@
-
 <a href="menu"> <button id="menu1" class="button">VOLTAR</button></a>
+<a ><button id="logoutButton">SAIR</button></a>
+ 
+  <script>
+    // ... (código anterior)
+
+    // Adicione esta parte para mostrar ou ocultar o botão de logout com base no estado da autenticação
+    const logoutButton = document.getElementById('logoutButton');
+
+    function updateLogoutButtonVisibility() {
+      const token = localStorage.getItem('token');
+      logoutButton.style.display = token ? 'block' : 'none';
+    }
+
+    updateLogoutButtonVisibility();
+
+    logoutButton.addEventListener('click', function () {
+      // Limpa o token ao clicar no botão de logout
+      localStorage.removeItem('token');
+      updateLogoutButtonVisibility();
+
+      // Simula o redirecionamento para a página de login
+      window.location.href = 'http://localhost:3000/login';
+    });
+  </script>
