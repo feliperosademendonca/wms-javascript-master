@@ -18,8 +18,8 @@ function authenticateUser(username, password) {
 }
 
 
-// Defina o caminho do arquivo bd.CSV
-const bd = './bd.csv';
+// Defina o caminho do arquivo CSV
+const bd = 'bd.csv';
 function escrevaBd(data){
 // Crie um objeto CsvWriter
 const csvWriter = createCsvWriter({
