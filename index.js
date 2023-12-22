@@ -168,24 +168,6 @@ app.post('/users', (req, res) => {
   });
 });
 
-// Middleware de autenticação global
-app.use((req, res, next) => {
-  const token = req.headers.authorization;
-console.log(token)
-  if (!token) {
-    // Redireciona para a página de login se não houver token
-    return res.redirect('/');
-  }
-
-  // Verifica o token (em uma aplicação real, você usaria uma biblioteca como JWT)
-  if (token !== 'token123') {
-    return res.status(401).json({ message: 'Token inválido' });
-  }
-
-  // Passa para o próximo middleware se o token for válido
-  next();
-});
-
 
 // Tela Inicial HOMEPage
 app.get('/menu', function(req, res) {
