@@ -1,0 +1,10 @@
+{
+"client_id":"479706692754-432hk4n8psd7vm6hf12gmrtbm49pdoea.apps.googleusercontent.com",
+"project_id":"supple-portal-354918",
+"auth_uri":"https://accounts.google.com/o/oauth2/auth",
+"token_uri":"https://oauth2.googleapis.com/token",
+"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+"client_secret":"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",
+"redirect_uris":["http://localhost"],
+"private_key":"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"
+}

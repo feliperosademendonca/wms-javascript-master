@@ -105,6 +105,7 @@
     "google-auth-library": "^9.2.0",
     "google-p12-pem": "^4.0.1",
     "google-spreadsheet": "^4.1.1",
+    "googleapis": "^129.0.0",
     "googleapis-common": "^7.0.1",
     "graceful-fs": "^4.2.10",
     "gtoken": "^7.0.1",

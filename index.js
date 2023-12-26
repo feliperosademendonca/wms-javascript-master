@@ -9,7 +9,23 @@ const fs = require('fs');
 const path = require('path');
 app.set('views', path.join(__dirname, 'views'));
 
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const creds = require('./credenciais.json');
 
+async function accessSpreadsheet() {
+  const doc = new GoogleSpreadsheet('1tutoRrUmzzErHKGsMotaTDDH8LnDr1TWRmeHtYSf4Eg');
+
+  // Autenticação usando a chave do serviço
+  await doc.useServiceAccountAuth(creds);
+
+  // Carregue as propriedades da planilha e dados da planilha
+  await doc.loadInfo(); // Carrega detalhes da planilha
+
+  console.log('Planilha título:', doc.title);
+}
+
+// Chamada da função
+accessSpreadsheet();
 // Função para verificar as credenciais do usuário
 function authenticateUser(username, password) {
   // Em uma aplicação real, você deve consultar um banco de dados ou fonte de dados seguro
@@ -57,6 +73,8 @@ csvWriter.writeRecords(dadosFormatados)
   .catch(err => console.error('Erro ao escrever o arquivo CSV', err));
 
 }
+
+
 
 //importar modulos de End.js e Prod.js
 const end = require('./end.js').End
