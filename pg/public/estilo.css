@@ -118,8 +118,8 @@ button:active{
 }
 
 .buttonMenu:hover{
-  border: 4px solid #5b48c7;
-  background-color: #2a00c4;
+  border: 4px solid #332388;
+  background-color: #15005f;
   color: #ffffff;
   transition: 300ms;
 }

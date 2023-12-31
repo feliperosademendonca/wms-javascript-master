@@ -7,79 +7,16 @@ const csv = require('csv-parser');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const fs = require('fs');
 const path = require('path');
+
 app.set('views', path.join(__dirname, 'views'));
-
-const { GoogleSpreadsheet } = require('google-spreadsheet');
-const creds = require('./credenciais.json');
-
-async function accessSpreadsheet() {
-  const doc = new GoogleSpreadsheet('1tutoRrUmzzErHKGsMotaTDDH8LnDr1TWRmeHtYSf4Eg');
-
-  // Autenticação usando a chave do serviço
-  await doc.useServiceAccountAuth(creds);
-
-  // Carregue as propriedades da planilha e dados da planilha
-  await doc.loadInfo(); // Carrega detalhes da planilha
-
-  console.log('Planilha título:', doc.title);
-}
-
-// Chamada da função
-accessSpreadsheet();
-// Função para verificar as credenciais do usuário
-function authenticateUser(username, password) {
-  // Em uma aplicação real, você deve consultar um banco de dados ou fonte de dados seguro
-  // Aqui, usamos credenciais fixas apenas para fins de exemplo.
-  return username === 'felipe' && password === '1234';
-}
-
-
-// Defina o caminho do arquivo CSV
-const bd = 'bd.csv';
-function escrevaBd(data){
-// Crie um objeto CsvWriter
-const csvWriter = createCsvWriter({
-  path: bd,
-  header: [
-    { id: 'rua', title: 'rua' },
-    { id: 'lado', title: 'lado' },
-    { id: 'predio', title: 'predio' },
-    { id: 'andar', title: 'andar' },
-    { id: 'EAN', title: 'EAN' },
-    { id: 'codigo', title: 'codigo' },
-    { id: 'descricao', title: 'descrico' },
-    { id: 'validade', title: 'validde' },
-    { id: 'quantidade', title: 'quantidade' },
-  ]
-});
-
-const dadosFormatados = end.map(item => ({
-  rua: item.rua,
-  lado: item.lado,
-  predio: item.predio,
-  andar: item.andar,
-  EAN: item.produtoNoEndereco.EAN,
-  codigo: item.produtoNoEndereco.codigo,
-  descricao: item.produtoNoEndereco.descricao,
-  validade: item.produtoNoEndereco.validade,
-  quantidade: item.produtoNoEndereco.quantidade,
-
-
-}));
-
-// Escreva os dados no arquivo CSV
-csvWriter.writeRecords(dadosFormatados)
-  .then(() => console.log('Arquivo CSV foi escrito com sucesso'))
-  .catch(err => console.error('Erro ao escrever o arquivo CSV', err));
-
-}
-
 
 
 //importar modulos de End.js e Prod.js
 const end = require('./end.js').End
 const rmv = require('./rmv.js');
 const add = require('./add.js');
+const { Key } = require('sshpk');
+const { async } = require('regenerator-runtime');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
