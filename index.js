@@ -7,17 +7,13 @@ const csv = require('csv-parser');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const fs = require('fs');
 const path = require('path');
-
+const db = require("./bd/models")
 app.set('views', path.join(__dirname, 'views'));
+const bd = fs.readFileSync('bd.csv', 'utf8');
+const end = require("./end.js")
 
 
-//importar modulos de End.js e Prod.js
-const end = require('./end.js').End
-const rmv = require('./rmv.js');
-const add = require('./add.js');
-const { Key } = require('sshpk');
-const { async } = require('regenerator-runtime');
-
+ 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
